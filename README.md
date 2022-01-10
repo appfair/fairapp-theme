@@ -1,2 +1,4 @@
 # fairapp-theme
-Site theme for App Fair apps
+
+*fairapp-theme* is a Jekyll theme based on *Minima*.
+
