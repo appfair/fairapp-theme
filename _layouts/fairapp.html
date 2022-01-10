@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 <div class="post-content">
     {{ content }}
 </div>
@@ -15,10 +16,13 @@ layout: default
 </ul>
 
 
+<h2>Installation</h2>
+
+There are a few diffent ways to install XXX
+
 <h3>Installation:</h3>
 
-  1. Launch [appfair://app/{{ appname }}](appfair://app/{{ site.github.owner_name }}) using the [App Fair](https://www.app-fair.app).
-
+Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="appfair://app/{{ appname }}">appfair://app/{{ appname }}</a>.
 
 <h3>Installation with Homebrew:</h3>
 
@@ -43,10 +47,7 @@ layout: default
 <!-- render the platform screenshots -->
 
 {% assign authors = site.posts | map: 'authors' | uniq %}
-
-{% assign assetnames = authors %}
-
-<!-- { % assign assetnames = site.github.latest_release.assets | map: 'name' | uniq % } -->
+{% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
 
 <h3>Asset Names: {{ assetnames }}</h3>
 
