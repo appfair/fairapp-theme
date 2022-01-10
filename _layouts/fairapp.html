@@ -2,13 +2,16 @@
 layout: default
 ---
 
+{% assign appname = site.github.owner_name %}
+{% assign apptoken = appname | slugify %}
+{% assign apptitle = appname | replace: "-", " " %}
 
 <div class="post-content">
     {{ content }}
 </div>
 
 
-<h2>Support:</h2>
+<h2>{{ apptitle }} Support:</h2>
 
 <ul>
     <li><a href="{{ site.github.repository_url }}/discussions">Discussions</a></li>
@@ -18,7 +21,7 @@ layout: default
 
 <h2>Installation</h2>
 
-There are a few diffent ways to install XXX
+There are a few diffent ways to install {{ apptitle }}.
 
 <h3>Installation:</h3>
 
@@ -26,7 +29,7 @@ Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="
 
 <h3>Installation with Homebrew:</h3>
 
-<pre><code>brew install appfair/app/{{ site.github.owner_name | slugify }}</code></pre>
+<pre><code>brew install appfair/app/{{ apptoken }}</code></pre>
 
 
 <h3>Direct Download:</h3>
@@ -46,16 +49,7 @@ Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="
 
 <!-- render the platform screenshots -->
 
-{% assign authors = site.posts | map: 'authors' | uniq %}
 {% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
-
-<h3>Asset Names: {{ assetnames }}</h3>
-
-<ul>
-{% for assetname in assetnames %}
-<li>{{ assetname }}</li>
-{% endfor %}
-</ul>
 
 {% assign platforms = 'mac,ios' | split: ',' %}
 
