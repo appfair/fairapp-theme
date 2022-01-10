@@ -71,11 +71,11 @@ Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="
 {% for asset in site.github.latest_release.assets %}
 
 {% if asset.name == maczip %}
-    <li>[{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})</li>
+    <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a></li>
 {% endif %}
 
 {% if asset.name == iosipa %}
-    <li>[{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }}) ([AltStore sideload](altstore://install?url={{ asset.browser_download_url }}))</li>
+<li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a> (<a href="altstore://install?url={{ asset.browser_download_url }}">AltStore sideload</a>)</li>
 {% endif %}
 
 {% endfor %} <!-- asset -->
