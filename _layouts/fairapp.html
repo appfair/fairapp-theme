@@ -50,17 +50,6 @@ Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
 <a href="{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip">{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip</a>
 </p>
 
-<h3>Release {{ appversion }} assets:</h3>
-
-<ul>
-{% for asset in site.github.latest_release.assets %}
-<li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a></li>
-{% else %}
-  This app does not yet have any releases.
-{% endfor %}
-</ul>
-
-
 <!-- render the platform screenshots -->
 
 {% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
@@ -79,12 +68,12 @@ Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
 <ul>
 {% for asset in site.github.latest_release.assets %}
 
-{% if asset.name == maczip %}
+{% if platform == 'mac' and asset.name == maczip %}
     <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a></li>
 {% endif %}
 
-{% if asset.name == iosipa %}
-<li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a> (<a href="altstore://install?url={{ asset.browser_download_url }}">AltStore sideload</a>)</li>
+{% if platform == 'ios' and asset.name == iosipa %}
+    <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a> (<a href="altstore://install?url={{ asset.browser_download_url }}">sideload</a>)</li>
 {% endif %}
 
 {% endfor %} <!-- asset -->
@@ -103,6 +92,19 @@ Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
 {% endfor %} <!-- asset -->
 
 {% endfor %} <!-- platforms -->
+
+
+<h3>Release {{ appversion }} assets:</h3>
+
+<ul>
+{% for asset in site.github.latest_release.assets %}
+<li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a></li>
+{% else %}
+  This app does not yet have any releases.
+{% endfor %}
+</ul>
+
+
 
 <p>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.</p>
 
