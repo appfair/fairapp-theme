@@ -6,6 +6,11 @@ layout: default
 {% assign apptoken = appname | slugify %}
 {% assign apptitle = appname | replace: "-", " " %}
 
+<p>
+<h2><img width="45" height="45" src="{{ site.github.repository_url }}/releases/latest/download/{{ appname }}.png" />{{ apptitle }}</h2>
+</p>
+
+
 <div class="post-content">
     {{ content }}
 </div>
@@ -91,7 +96,5 @@ Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="
 {% endfor %} <!-- platforms -->
 
 <p>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.</p>
-
-
 
 
