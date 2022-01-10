@@ -5,6 +5,7 @@ layout: default
 {% assign appname = site.github.owner_name %}
 {% assign apptoken = appname | slugify %}
 {% assign apptitle = appname | replace: "-", " " %}
+{% assign appversion = site.github.latest_release.tag_name %}
 
 <p>
 <h2><img width="45" height="45" src="{{ site.github.repository_url }}/releases/latest/download/{{ appname }}.png" />{{ apptitle }}</h2>
@@ -30,18 +31,26 @@ There are a few diffent ways to install {{ apptitle }}.
 
 <h3>Installation:</h3>
 
+<p>
 Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="appfair://app/{{ appname }}">appfair://app/{{ appname }}</a>.
+</p>
 
 <h3>Installation with Homebrew:</h3>
 
+<p>
+Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
+</p>
+<p>
 <pre><code>brew install appfair/app/{{ apptoken }}</code></pre>
-
+</p>
 
 <h3>Direct Download:</h3>
 
+<p>
 <a href="{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip">{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip</a>
+</p>
 
-<h3>Latest Release assets:</h3>
+<h3>Release {{ appversion }} assets:</h3>
 
 <ul>
 {% for asset in site.github.latest_release.assets %}
