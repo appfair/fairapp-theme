@@ -1,4 +1,8 @@
+# Build settings
+theme: fairapp-theme
+
 title: Your awesome title
+
 author:
   name: GitHub User
   email: your-email@domain.com
@@ -13,11 +17,12 @@ show_excerpts: false # set to true to show excerpts on the homepage
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 fairapp:
   date_format: "%b %-d, %Y"
+  subscribe_rss: false
 
   # generate social links in footer
   social_links:
-    twitter: jekyllrb
-    github:  jekyll
+    # twitter: jekyllrb
+    # github:  jekyll
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
@@ -51,9 +56,6 @@ fairapp:
 # this and add the path to the pages in order as they should show up
 #header_pages:
 # - about.md
-
-# Build settings
-theme: fairapp-theme
 
 plugins:
  - jekyll-feed
