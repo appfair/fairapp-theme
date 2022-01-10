@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<div class="post-content">
+    {{ content }}
+</div>
+
+
+## Links:
+
+  * [Discussions: {{ site.github.repository_url }}/discussions]({{ site.github.repository_url }}/discussions)
+  * [Issues: {{ site.github.repository_url }}/issues]({{ site.github.repository_url }}/issues)
+
+### Installation:
+
+  1. Launch [appfair://app/{{ appname }}](appfair://app/{{ site.github.owner_name }}) using the [App Fair](https://www.app-fair.app).
+  2. Run: `brew install appfair/app/{{ site.github.owner_name | slugify }}`
+  3.  Download: [{{ site.github.owner_name }}-macOS.zip]({{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip)
+
+### Latest Release assets:
+
+{% for asset in site.github.latest_release.assets %}
+  * [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})
+{% else %}
+  This app does not yet have any releases.
+{% endfor %}
+
+<!-- render the platform screenshots -->
+
+{% assign authors = site.posts | map: 'authors' | uniq %}
+
+{% assign assetnames = authors %}
+
+<!-- { % assign assetnames = site.github.latest_release.assets | map: 'name' | uniq % } -->
+
+### Asset Names: {{ assetnames }}
+
+{% for assetname in assetnames %}
+- {{ assetname }}
+{% endfor %}
+
+
+{% assign platforms = 'mac,ios' | split: ',' %}
+
+{% assign maczip = appname | append: '-macOS.zip' %}
+{% assign macrelease = assetnames contains maczip %}
+{% assign iosipa = appname | append: '-iOS.ipa' %}
+{% assign iosrelease = assetnames contains iosipa %}
+
+{% for platform in platforms %}
+
+## Platform: {{ platform }}
+
+{% for asset in site.github.latest_release.assets %}
+
+{% if asset.name == maczip %}
+  - [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})
+{% endif %}
+
+{% if asset.name == iosipa %}
+  - [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }}) ([AltStore sideload](altstore://install?url={{ asset.browser_download_url }}))
+{% endif %}
+
+{% endfor %} <!-- asset -->
+
+<!-- screenshots follow assets -->
+{% for asset in site.github.latest_release.assets %}
+{% assign screenpre = "screenshot-" | append: platform %}
+{% if asset.name contains screenpre %}
+<img src="{{ asset.browser_download_url }}" />
+{% endif %}
+
+{% endfor %} <!-- asset -->
+
+{% endfor %} <!-- platforms -->
+
+<p>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.</p>
+
+
+
+
