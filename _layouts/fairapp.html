@@ -7,18 +7,21 @@ layout: default
 </div>
 
 
-## Links:
+<h2>Links:</h2>
 
-  * [Discussions: {{ site.github.repository_url }}/discussions]({{ site.github.repository_url }}/discussions)
-  * [Issues: {{ site.github.repository_url }}/issues]({{ site.github.repository_url }}/issues)
+<ul>
+    <li>[Discussions: {{ site.github.repository_url }}/discussions]({{ site.github.repository_url }}/discussions)</li>
+    <li>[Issues: {{ site.github.repository_url }}/issues]({{ site.github.repository_url }}/issues)</li>
+</ul>
 
-### Installation:
+
+<h3>Installation:</h3>
 
   1. Launch [appfair://app/{{ appname }}](appfair://app/{{ site.github.owner_name }}) using the [App Fair](https://www.app-fair.app).
   2. Run: `brew install appfair/app/{{ site.github.owner_name | slugify }}`
   3.  Download: [{{ site.github.owner_name }}-macOS.zip]({{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip)
 
-### Latest Release assets:
+  <h3>Latest Release assets:</h3>
 
 {% for asset in site.github.latest_release.assets %}
   * [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})
@@ -34,12 +37,13 @@ layout: default
 
 <!-- { % assign assetnames = site.github.latest_release.assets | map: 'name' | uniq % } -->
 
-### Asset Names: {{ assetnames }}
+<h3>Asset Names: {{ assetnames }}</h3>
 
+<ul>
 {% for assetname in assetnames %}
-- {{ assetname }}
+<li>{{ assetname }}</li>
 {% endfor %}
-
+</ul>
 
 {% assign platforms = 'mac,ios' | split: ',' %}
 
@@ -50,25 +54,30 @@ layout: default
 
 {% for platform in platforms %}
 
-## Platform: {{ platform }}
+<h2>Platform: {{ platform }}</h2>
 
+<ul>
 {% for asset in site.github.latest_release.assets %}
 
 {% if asset.name == maczip %}
-  - [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})
+    <li>[{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }})</li>
 {% endif %}
 
 {% if asset.name == iosipa %}
-  - [{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }}) ([AltStore sideload](altstore://install?url={{ asset.browser_download_url }}))
+    <li>[{{ asset.name }} ({{ asset.size }})]({{ asset.browser_download_url }}) ([AltStore sideload](altstore://install?url={{ asset.browser_download_url }}))</li>
 {% endif %}
 
 {% endfor %} <!-- asset -->
+
+</ul>
 
 <!-- screenshots follow assets -->
 {% for asset in site.github.latest_release.assets %}
 {% assign screenpre = "screenshot-" | append: platform %}
 {% if asset.name contains screenpre %}
+<p>
 <img src="{{ asset.browser_download_url }}" />
+</p>
 {% endif %}
 
 {% endfor %} <!-- asset -->
