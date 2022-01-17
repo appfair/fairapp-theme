@@ -36,7 +36,6 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 
 <!-- render the platform screenshots -->
 
-<!--
 
 {% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
 
@@ -48,6 +47,8 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 {% assign iosrelease = assetnames contains iosipa %}
 
 {% for platform in platforms %}
+
+<!--
 
 <h2>Platform: {{ platform }}</h2>
 
@@ -77,9 +78,9 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 </p>
 {% endif %}
 
-{% endfor %} <!-- asset -->
+{% endfor %} 
 
-{% endfor %} <!-- platforms -->
+{% endfor %} 
 
 
 <h3>Release {{ appversion }} assets:</h3>
