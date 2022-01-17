@@ -22,35 +22,21 @@ layout: default
 <ul>
     <li><a href="{{ site.github.repository_url }}/discussions">Discussions</a></li>
     <li><a href="{{ site.github.repository_url }}/issues">Issues</a></li>
+    <li><a href="{{ site.github.repository_url }}/releases">Releases</a></li>
 </ul>
 
 
 <h2>Installation</h2>
 
-There are a few diffent ways to install {{ apptitle }}.
-
-<h3>Installation:</h3>
-
 <p>
-Install <a href="https://www.appfair.net">App Fair.app</a> and launch: <a href="appfair://app/{{ appname }}">appfair://app/{{ appname }}</a>.
+To install and update this app, open it with the <a href="https://app-fair.app/fair#app/{{ appname }}">App Fair</a> app.
 </p>
 
-<h3>Installation with Homebrew:</h3>
-
 <p>
-Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
-</p>
-<p>
-<pre><code>brew install appfair/app/{{ apptoken }}</code></pre>
-</p>
-
-<h3>Direct Download:</h3>
-
-<p>
-<a href="{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip">{{ site.github.repository_url }}/releases/latest/download/{{ site.github.owner_name }}-macOS.zip</a>
-</p>
 
 <!-- render the platform screenshots -->
+
+<!--
 
 {% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
 
@@ -76,11 +62,13 @@ Install Homebrew from <a href="https://brew.sh">brew.sh</a> and then run:
     <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a> (<a href="altstore://install?url={{ asset.browser_download_url }}">sideload</a>)</li>
 {% endif %}
 
-{% endfor %} <!-- asset -->
+{% endfor %} 
 
 </ul>
 
-<!-- screenshots follow assets -->
+-->
+
+
 {% for asset in site.github.latest_release.assets %}
 {% assign screenpre = "screenshot-" | append: platform %}
 {% if asset.name contains screenpre %}
