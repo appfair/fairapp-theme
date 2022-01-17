@@ -71,8 +71,7 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 
 
 {% for asset in site.github.latest_release.assets %}
-{% assign screenpre = "screenshot-" | append: platform %}
-{% if asset.name contains screenpre %}
+{% if asset.name contains "screenshot-" and asset.name contains ("-" + platform + "-") %}
 <p>
 <img src="{{ asset.browser_download_url }}" />
 </p>
@@ -83,6 +82,7 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 {% endfor %} 
 
 
+<!--
 <h3>Release {{ appversion }} assets:</h3>
 
 <ul>
@@ -93,8 +93,7 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 {% endfor %}
 </ul>
 
-
-
 <p>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.</p>
 
+-->
 
