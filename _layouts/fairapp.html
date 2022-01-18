@@ -48,6 +48,8 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 
 {% for platform in platforms %}
 
+{% assign platdash = '-' | append: platform | append: '-' %}
+
 <!--
 
 <h2>Platform: {{ platform }}</h2>
@@ -71,7 +73,7 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 
 
 {% for asset in site.github.latest_release.assets %}
-{% if asset.name contains "screenshot-" and asset.name contains ("-" + platform + "-") %}
+{% if asset.name contains platdash %}
 <p>
 <img src="{{ asset.browser_download_url }}" />
 </p>
