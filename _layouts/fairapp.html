@@ -77,8 +77,18 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 
 {% for asset in site.github.latest_release.assets %}
 {% if asset.name contains platdash %}
+
+{% assign dim = asset.name | split: "-" | last | split: "." | first | split: "@" | first %}
+{% assign width = dim | split: "x" | first %}
+{% assign height = dim | split: "x" | last %}
+
 <p>
+{% if width != "" %}
+<img width="{{ width }}" height="{{ height }}" src="{{ asset.browser_download_url }}" />
+{% else %}
 <img src="{{ asset.browser_download_url }}" />
+{% endif %}
+
 </p>
 {% endif %}
 
