@@ -82,14 +82,14 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 {% assign width = dim | split: "x" | first %}
 {% assign height = dim | split: "x" | last %}
 
-<p>
+<div>
 {% if width != "" %}
-<img width="{{ width }}" height="{{ height }}" src="{{ asset.browser_download_url }}" />
+<img width="{{ width }}" height="{{ height }}" style="max-width: 100%; object-position: top; object-fit: scale-down;" src="{{ asset.browser_download_url }}" />
 {% else %}
 <img src="{{ asset.browser_download_url }}" />
 {% endif %}
 
-</p>
+</div>
 {% endif %}
 
 {% endfor %} 
