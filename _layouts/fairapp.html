@@ -2,13 +2,20 @@
 layout: default
 ---
 
-{% assign appname = site.github.owner_name %}
+{% if site.github %}
+    {% assign appname = site.github.owner_name %}
+    {% assign appurl = site.github.repository_url %}
+{% else %}
+    {% assign appname = "App-Fair" %}
+    {% assign appurl = "https://github.com/App-Fair/App" %}
+{% endif %}
+
 {% assign apptoken = appname | slugify %}
 {% assign apptitle = appname | replace: "-", " " %}
 {% assign appversion = site.github.latest_release.tag_name %}
 
 <p>
-<h2><img width="45" height="45" src="{{ site.github.repository_url }}/releases/latest/download/{{ appname }}.png" />{{ apptitle }}</h2>
+<h4><img width="30" height="30" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" /> {{ apptitle }}</h4>
 </p>
 
 
@@ -17,18 +24,12 @@ layout: default
 </div>
 
 
-<h2>{{ apptitle }} Support:</h2>
+{% if appname == "App-Fair" %}
+<div style="text-align: center; user-select: none;">
+    <a href="{{ appurl }}/releases/latest/download/{{ appname }}-macOS.zip"><img alt="Download {{ appname }}.app for macOS 12+" height="80" style="user-select: none;" src="download_button.svg" /></a>
+</div>   
 
-<ul>
-    <li><a href="{{ site.github.repository_url }}/discussions">Discussions</a></li>
-    <li><a href="{{ site.github.repository_url }}/issues">Issues</a></li>
-    <li><a href="{{ site.github.repository_url }}/releases">Releases</a></li>
-</ul>
-
-
-{% if appname != "App-Fair" %}
-<h2>Installation</h2>
-
+{% else %}
 <p>
 To install and update this app, open it with the <a href="https://app-fair.app/fair#app/{{ appname }}">App Fair</a> app.
 </p>
@@ -45,38 +46,15 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 {% assign platforms = 'mac,ios' | split: ',' %}
 
 {% assign maczip = appname | append: '-macOS.zip' %}
-{% assign macrelease = assetnames contains maczip %}
 {% assign iosipa = appname | append: '-iOS.ipa' %}
-{% assign iosrelease = assetnames contains iosipa %}
 
 {% for platform in platforms %}
 
 {% assign platdash = '-' | append: platform | append: '-' %}
 
-<!--
+{% for asset in site.static_files %}
 
-<h2>Platform: {{ platform }}</h2>
-
-<ul>
-{% for asset in site.github.latest_release.assets %}
-
-{% if platform == 'mac' and asset.name == maczip %}
-    <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a></li>
-{% endif %}
-
-{% if platform == 'ios' and asset.name == iosipa %}
-    <li><a href="{{ asset.browser_download_url }}">{{ asset.name }} ({{ asset.size }})</a> (<a href="altstore://install?url={{ asset.browser_download_url }}">sideload</a>)</li>
-{% endif %}
-
-{% endfor %} 
-
-</ul>
-
--->
-
-
-{% for asset in site.github.latest_release.assets %}
-{% if asset.name contains platdash %}
+{% if asset.path contains 'screenshots/screenshot' and asset.extname == '.png' and asset.path contains platdash %}
 
 {% assign dim = asset.name | split: "-" | last | split: "." | first | split: "@" | first %}
 {% assign width = dim | split: "x" | first %}
@@ -87,7 +65,7 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 <!-- disabled for now; div height does not shrink -->
 <a href="{{ asset.browser_download_url }}"><img width="{{ width }}" height="{{ height }}" style="max-width: 100%; object-position: top; object-fit: scale-down;" alt="{{ apptitle }} screen shot" src="{{ asset.browser_download_url }}" /></a>
 {% else %}
-<a href="{{ asset.browser_download_url }}"><img alt="{{ apptitle }} screen shot" src="{{ asset.browser_download_url }}" /></a>
+<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" src="screenshots/{{ asset.name }}" /></a>
 {% endif %}
 
 </div>
@@ -112,4 +90,13 @@ To install and update this app, open it with the <a href="https://app-fair.app/f
 <p>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.</p>
 
 -->
+
+<h2>{{ apptitle }} Support:</h2>
+
+<ul>
+    <li><a href="{{ appurl }}/discussions">Discussions</a></li>
+    <li><a href="{{ appurl }}/issues">Issues</a></li>
+    <li><a href="{{ appurl }}/releases">Releases</a></li>
+    <li><a href="{{ appurl }}.git">Source Code</a></li>
+</ul>
 
