@@ -5,6 +5,9 @@ layout: default
 {% if site.github %}
     {% assign appname = site.github.owner_name %}
     {% assign appurl = site.github.repository_url %}
+{% else %}
+    {% assign appname = "App-Fair" %}
+    {% assign appurl = "https://github.com/App-Fair/App" %}
 {% endif %}
 
 {% assign apptoken = appname | slugify %}
