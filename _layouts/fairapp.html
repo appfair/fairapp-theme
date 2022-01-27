@@ -7,17 +7,17 @@ layout: default
     {% assign appurl = site.github.repository_url %}
 {% else %}
     {% assign appname = page.appname %}
-    {% assign appurl = "https://github.com/{{ page.appname }}/App" %}
+    {% assign appurl = "https://github.com/{{ appname }}/App" %}
 {% endif %}
 
 {% assign apptoken = appname | slugify %}
 {% assign apptitle = appname | replace: "-", " " %}
-{% assign appversion = site.github.latest_release.tag_name %}
 
+{% if page.showicon != false %}
 <p>
 <h4><img width="30" height="30" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" /> {{ apptitle }}</h4>
 </p>
-
+{% endif %}
 
 <div class="post-content">
     {{ content }}
@@ -71,6 +71,8 @@ View with the <a href="https://appfair.app/fair#app/{{ appname }}">App Fair</a> 
 
 
 <!--
+{% assign appversion = site.github.latest_release.tag_name %}
+
 <h3>Release {{ appversion }} assets:</h3>
 
 <ul>
