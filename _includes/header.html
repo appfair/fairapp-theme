@@ -16,16 +16,18 @@
     {% assign apptitle = appname | replace: "-", " " %}
 
     {% if page.showicon != false %}
+    <span style="vertical-align: middle;">
     <p>
-    <img align="left" width="45" height="45" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
+    <img align="left" width="55" height="55" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
     </p>
     {% endif %}
     <p>
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
         {{ apptitle | default:site.title | escape }}</a>
-    <hr />
+        <br />
         {{ page.subtitle | default: site.description }}
     </p>
+    </span>
 
     {%- if titles_size > 0 -%}
       <nav class="site-nav">

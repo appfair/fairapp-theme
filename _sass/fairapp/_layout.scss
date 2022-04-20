@@ -18,7 +18,7 @@
   DISABLED-letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
-  vertical-align: middle;
+  DISABLED-vertical-align: middle;
 
   @include media-query($on-palm) {
     padding-right: 45px;
