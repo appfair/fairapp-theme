@@ -85,13 +85,9 @@ $ brew install appfair/app/{{ apptoken }}
 {% endif %}
 
 <div>
-{% if false and width != "" and height != "" %}
-<!-- disabled for now; div height does not shrink -->
-<a href="{{ asset.browser_download_url }}"><img width="{{ width }}" height="{{ height }}" style="max-width: 100%; object-position: top; object-fit: scale-down;" alt="{{ apptitle }} screen shot" src="{{ asset.browser_download_url }}" /></a>
-{% else %}
-<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" src="screenshots/{{ asset.name }}" /></a>
+{% if width != "" and height != "" %}
+<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" width="{{ width / 2 }}" height="{{ height / 2 }}" src="screenshots/{{ asset.name }}" /></a>
 {% endif %}
-
 </div>
 {% endif %}
 
