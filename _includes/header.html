@@ -19,7 +19,7 @@
     {% if page.showicon != false %}
     <img style="padding: 10px;" align="left" width="40" height="40" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
     {% endif %}
-    <p>
+    <p style="vertical-align: text-bottom;">
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ apptitle | default:site.title | escape }}</a> – {{ page.subtitle | default: site.description }}
     </p>
     </div>
