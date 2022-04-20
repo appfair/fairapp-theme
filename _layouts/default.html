@@ -1,17 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-{% if site.github %}
-    {% assign appname = site.github.owner_name %}
-    {% assign appurl = site.github.repository_url %}
-{% else %}
-    {% assign appname = page.appname %}
-    {% assign appurl = "https://github.com/{{ page.appname }}/App" %}
-{% endif %}
-
-{% assign apptoken = appname | slugify %}
-{% assign apptitle = appname | replace: "-", " " %}
-
-
   {%- include head.html -%}
 
   <body>

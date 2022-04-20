@@ -4,6 +4,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 
-  {%- seo -%}
+  {% if site.github %}
+    {% assign appname = site.github.owner_name %}
+    {% assign appurl = site.github.repository_url %}
+  {% else %}
+    {% assign appname = page.appname %}
+    {% assign appurl = "https://github.com/{{ page.appname }}/App" %}
+  {% endif %}
+  {% assign apptoken = appname | slugify %}
+  {% assign apptitle = appname | replace: "-", " " %}
+
+  <title>{{ page.title | default: apptitle }} | {{ page.subtitle }}</title>
+  {%- seo title=false -%}
+
   {%- include custom-head.html -%}
 </head>
