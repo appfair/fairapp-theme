@@ -1,6 +1,19 @@
 {% comment %}
-  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
-
-  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
-  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
+  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons
 {% endcomment %}
+
+{% if site.github %}
+    {% assign appname = site.github.owner_name %}
+    {% assign appurl = site.github.repository_url %}
+{% else %}
+    {% assign appname = page.appname %}
+    {% assign appurl = "https://github.com/{{ page.appname }}/App" %}
+{% endif %}
+
+{% assign apptoken = appname | slugify %}
+{% assign apptitle = appname | replace: "-", " " %}
+
+{% if page.showicon != false %}
+<link rel="shortcut icon" type="image/png" href="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
+{% endif %}
+
