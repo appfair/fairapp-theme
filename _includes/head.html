@@ -14,7 +14,7 @@
   {% assign apptoken = appname | slugify %}
   {% assign apptitle = appname | replace: "-", " " %}
 
-  <title>{{ page.title | default: apptitle }} | {{ page.subtitle }}</title>
+  <title>{{ page.title | default: apptitle }} | {{ page.subtitle | default: site.description }}</title>
   {%- seo title=false -%}
 
   {%- include custom-head.html -%}
