@@ -17,12 +17,20 @@ layout: default
     {{ content }}
 </div>
 
-{% if content == "" %}
 {% if appname != "App-Fair" %}
 <p>
-This app can be installed and run on macOS using <a href="https://appfair.app/fair?app={{ appname }}">App Fair.app</a>
+{{ apptitle }} requires macOS 12 and can be installed with <a href="https://appfair.app">App Fair.app</a> by visting:
+<a href="https://appfair.app/fair?app={{ appname }}">https://appfair.app/fair?app={{ appname }}</a>
 </p>
-{% endif %}
+
+<p>
+Alternatively, <a href="https://brew.sh/">Homebrew</a> users can
+install the app by opening `Terminal.app` and running:
+
+```
+$ brew install appfair/app/{{ apptoken }}
+```
+</p>
 {% endif %}
 
 <p>
@@ -85,9 +93,9 @@ This app can be installed and run on macOS using <a href="https://appfair.app/fa
 <h2>{{ apptitle }} Links:</h2>
 
 <ul>
+    <li><a href="https://appfair.app/fair?app={{ appname }}">Install</a></li>
     <li><a href="{{ appurl }}/discussions">Discussions</a></li>
     <li><a href="{{ appurl }}/issues">Issues</a></li>
     <li><a href="{{ appurl }}.git">Source Code</a></li>
-    <li><a href="{% github_edit_link %}">Improve this page</a></li>
 </ul>
 
