@@ -12,14 +12,13 @@
 }
 
 .site-title {
-  @include relative-font-size(1.625);
+  @include relative-font-size(2.5);
   font-family: ui-rounded, Arial Rounded MT Bold, Helvetica Rounded, Arial, sans-serif;
   DISABLED-font-weight: 300;
   DISABLED-letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
   vertical-align: middle;
-  text-decoration: none;
 
   @include media-query($on-palm) {
     padding-right: 45px;
@@ -28,6 +27,11 @@
   &,
   &:visited {
     color: $site-title-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
   }
 }
 
