@@ -74,12 +74,13 @@ $ brew install appfair/app/{{ apptoken }}
 {% assign imgwidth = "max-width: 80%;" %}
 {% else %}
 {% assign imgborder = "border: 1px solid black;" %}
-{% assign imgwidth = "max-width: 30%;" %}
+{% assign imgwidth = "max-width: 25%;" %}
 {% endif %}
 
 {% if platform == 'mac' and macHeader == false %}
 {% assign macHeader = true %}
 <h2>macOS Screenshots</h2>
+<div style="display: block; margin-left: auto; margin-right: auto;">
 {% endif %}
 
 {% if platform == 'iphone' and iPhoneHeader == false %}
@@ -93,7 +94,7 @@ $ brew install appfair/app/{{ apptoken }}
 {% endif %}
 
 {% if width != "" and height != "" %}
-<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" style="padding: 20px; height: auto; {{ imgwidth }} {{ imgborder }}" src="screenshots/{{ asset.name }}" /></a>
+<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" style="margin: 30px; height: auto; {{ imgwidth }} {{ imgborder }}" src="screenshots/{{ asset.name }}" /></a>
 {% endif %}
 
 {% endif %}
@@ -101,7 +102,7 @@ $ brew install appfair/app/{{ apptoken }}
 {% endfor %} 
 
 {% endfor %} 
-
+</div>
 
 <!--
 {% assign appversion = site.github.latest_release.tag_name %}
