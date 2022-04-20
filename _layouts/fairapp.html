@@ -71,8 +71,10 @@ $ brew install appfair/app/{{ apptoken }}
 
 {% if platform == 'mac' %}
 {% assign imgborder = "" %}
+{% assign imgwidth = "max-width: 80%" %}
 {% else %}
 {% assign imgborder = "border: 1px solid black;" %}
+{% assign imgwidth = "max-width: 30%" %}
 {% endif %}
 
 {% if platform == 'mac' and macHeader == false %}
@@ -90,11 +92,10 @@ $ brew install appfair/app/{{ apptoken }}
 <h2>iPad Screenshots</h2>
 {% endif %}
 
-<div>
 {% if width != "" and height != "" %}
-<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" style="max-width: 50%; height: auto; {{ imgborder }}" src="screenshots/{{ asset.name }}" /></a>
+<a href="screenshots/{{ asset.name }}"><img alt="{{ apptitle }} screen shot" style="padding: 20px; height: auto; {{ imgwidth }} {{ imgborder }}" src="screenshots/{{ asset.name }}" /></a>
 {% endif %}
-</div>
+
 {% endif %}
 
 {% endfor %} 
