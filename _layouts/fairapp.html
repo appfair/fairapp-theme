@@ -48,9 +48,10 @@ $ brew install appfair/app/{{ apptoken }}
 
 {% assign assetnames = site.github.latest_release.assets | map: 'name' | uniq %}
 
-{% assign platforms = 'mac,ios' | split: ',' %}
+{% assign platforms = 'mac,iphone,ipad' | split: ',' %}
 
-{% assign iosHeader = false %}
+{% assign iPhoneHeader = false %}
+{% assign iPadHeader = false %}
 {% assign macHeader = false %}
 
 {% assign maczip = appname | append: '-macOS.zip' %}
@@ -73,9 +74,14 @@ $ brew install appfair/app/{{ apptoken }}
 <h2>macOS Screenshots</h2>
 {% endif %}
 
-{% if platform == 'ios' and iosHeader == false %}
-{% assign iosHeader = true %}
-<h2>iOS Screenshots</h2>
+{% if platform == 'iphone' and iPhoneHeader == false %}
+{% assign iPhoneHeader = true %}
+<h2>iPhone Screenshots</h2>
+{% endif %}
+
+{% if platform == 'ipad' and iPadHeader == false %}
+{% assign iPadHeader = true %}
+<h2>iPad Screenshots</h2>
 {% endif %}
 
 <div>
