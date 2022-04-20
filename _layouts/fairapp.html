@@ -18,7 +18,7 @@ layout: default
 </div>
 
 {% if appname != "App-Fair" %}
-<h2><a name="install" />Installation</h2>
+<h2>Installation</h2>
 
 <p>
 {{ apptitle }} is a free and open-source <a href="https://appfair.net">appfair.net</a> app. It can be installed using <a href="https://appfair.app">App Fair.app</a> on macOS 12+ by visting:
@@ -72,12 +72,12 @@ $ brew install appfair/app/{{ apptoken }}
 
 {% if platform == 'mac' and macHeader == false %}
 {% assign macHeader = true %}
-<h2><a name="screens-macos" />macOS Screenshots</h2>
+<h2>macOS Screenshots</h2>
 {% endif %}
 
 {% if platform == 'ios' and iosHeader == false %}
 {% assign iosHeader = true %}
-<h2><a name="screens-ios" />iOS Screenshots</h2>
+<h2>iOS Screenshots</h2>
 {% endif %}
 
 <div>
@@ -113,7 +113,7 @@ $ brew install appfair/app/{{ apptoken }}
 
 -->
 
-<h2><a name="links" />Links</h2>
+<h2>Links</h2>
 
 <ul>
     <li><a href="https://appfair.app/fair?app={{ appname }}">Install</a></li>
