@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% if site.github %}
+    {% assign site.title = site.github.owner_name %}
     {% assign appname = site.github.owner_name %}
     {% assign appurl = site.github.repository_url %}
 {% else %}
