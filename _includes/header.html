@@ -17,10 +17,10 @@
 
     <div>
     {% if page.showicon != false %}
-    <img style="padding-right: 10px;" align="left" width="80" height="80" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
+    <img style="padding: 10px;" align="left" width="80" height="80" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
     {% endif %}
     <p>
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ apptitle | default:site.title | escape }}</a>
+    <a class="DISABLED-site-title" rel="author" href="{{ "/" | relative_url }}">{{ apptitle | default:site.title | escape }}</a>
     <br />
     {{ page.subtitle | default: site.description }}
     </p>
