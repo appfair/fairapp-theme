@@ -13,12 +13,6 @@ layout: default
 {% assign apptoken = appname | slugify %}
 {% assign apptitle = appname | replace: "-", " " %}
 
-{% if page.showicon != false %}
-<p>
-<h4><img width="30" height="30" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" /> {{ apptitle }}</h4>
-</p>
-{% endif %}
-
 <div class="post-content">
     {{ content }}
 </div>
