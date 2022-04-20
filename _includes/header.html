@@ -15,17 +15,16 @@
     {% assign apptoken = appname | slugify %}
     {% assign apptitle = appname | replace: "-", " " %}
 
+    <div style="vertical-align: middle;">
     {% if page.showicon != false %}
-    <span style="vertical-align: middle;">
     <p>
     <img align="left" width="55" height="55" src="{{ appurl }}/releases/latest/download/{{ appname }}.png" />
     </p>
     {% endif %}
     <p>
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
-        {{ apptitle | default:site.title | escape }}</a>
-        <br />
-        {{ page.subtitle | default: site.description }}
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ apptitle | default:site.title | escape }}</a>
+    <br />
+    {{ page.subtitle | default: site.description }}
     </p>
     </span>
 
