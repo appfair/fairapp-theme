@@ -71,10 +71,10 @@ $ brew install appfair/app/{{ apptoken }}
 
 {% if platform == 'mac' %}
 {% assign imgborder = "" %}
-{% assign imgwidth = "max-width: 80%" %}
+{% assign imgwidth = "max-width: 80%;" %}
 {% else %}
 {% assign imgborder = "border: 1px solid black;" %}
-{% assign imgwidth = "max-width: 30%" %}
+{% assign imgwidth = "max-width: 30%;" %}
 {% endif %}
 
 {% if platform == 'mac' and macHeader == false %}
