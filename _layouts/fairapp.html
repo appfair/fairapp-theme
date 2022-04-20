@@ -18,6 +18,8 @@ layout: default
 </div>
 
 {% if appname != "App-Fair" %}
+<h2>Installation</h2>
+
 <p>
 {{ apptitle }} is a free and open-source <a href="https://appfair.net">appfair.net</a> app. It can be installed using <a href="https://appfair.app">App Fair.app</a> on macOS 12+ by visting:
 </p>
@@ -30,7 +32,7 @@ layout: default
 
 <p>
 Alternatively, <a href="https://brew.sh/">Homebrew</a> users can
-install the app by opening `Terminal.app` and running:
+install the app by launching Terminal.app and running:
 </p>
 
 <p>
@@ -50,6 +52,9 @@ $ brew install appfair/app/{{ apptoken }}
 
 {% assign platforms = 'mac,ios' | split: ',' %}
 
+{% assign iosHeader = false %}
+{% assign macHeader = false %}
+
 {% assign maczip = appname | append: '-macOS.zip' %}
 {% assign iosipa = appname | append: '-iOS.ipa' %}
 
@@ -64,6 +69,16 @@ $ brew install appfair/app/{{ apptoken }}
 {% assign dim = asset.name | split: "-" | last | split: "." | first | split: "@" | first %}
 {% assign width = dim | split: "x" | first %}
 {% assign height = dim | split: "x" | last %}
+
+{% if platform == 'mac' and macHeader == false %}
+{% assign macHeader = true %}
+<h2>macOS Screenshots</h2>
+{% endif %}
+
+{% if platform == 'ios' and iosHeader == false %}
+{% assign iosHeader = true %}
+<h2>iOS Screenshots</h2>
+{% endif %}
 
 <div>
 {% if false and width != "" and height != "" %}
